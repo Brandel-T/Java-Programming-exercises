@@ -1,0 +1,31 @@
+
+public class List 
+{
+	Node head ;
+	Node tail;
+	int count; //length of the list
+	
+	public List() { //empty List
+		head = null;
+		tail = null;
+		count = 0;
+	}
+	
+	//method to know if the list empty is or not
+	static boolean emptyList(List list)
+	{
+		if(list.head == null && list.tail == null)
+			return true;
+	}
+	
+	public static List insert(Node x, int p)
+	{
+		List list;
+		
+		if()
+		
+		
+		return list;
+	}
+	
+}

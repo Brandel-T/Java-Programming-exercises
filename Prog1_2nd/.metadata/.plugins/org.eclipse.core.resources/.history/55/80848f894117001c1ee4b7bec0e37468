@@ -1,0 +1,15 @@
+package Blatt5;
+
+public class Triangle {
+
+	Point a;
+	Point b;
+	Point c;
+	
+	Triangle(Point a, Point b, Point c) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+	
+}

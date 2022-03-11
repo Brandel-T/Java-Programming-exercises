@@ -1,0 +1,27 @@
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class BadWordFilter 
+{
+//	public String filter (String input, String[] badWords)
+//	{
+//		for (String s : badWords)
+//		{
+//			if (input.contains(s)) {
+//				
+//			}
+//		}
+//		
+//	}
+	
+	public static void main(String[] args) {
+		String str = "Und diese Biene, die ich meine, nennt sich Maja,";
+		String trenner = " .,'";
+		StringTokenizer stoken = new StringTokenizer(str, trenner, true);
+		while (stoken.hasMoreTokens()) {
+			System.out.print (stoken.nextToken()+ " - ");
+		}
+		
+	}
+	
+}

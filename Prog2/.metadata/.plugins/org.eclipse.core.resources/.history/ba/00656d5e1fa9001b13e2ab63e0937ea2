@@ -1,0 +1,15 @@
+
+public class Node
+{
+	int value;
+	Node previous;
+	Node next;
+	
+	Node(int value)
+	{
+		this.value = value;
+		previous = null;
+		next = null;
+	}
+	
+}

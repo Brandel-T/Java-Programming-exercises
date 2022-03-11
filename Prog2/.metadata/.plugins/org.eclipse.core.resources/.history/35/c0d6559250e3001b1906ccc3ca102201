@@ -1,0 +1,23 @@
+package Klausur_Vorbereitung;
+
+import java.util.ArrayList;
+
+public class KlausurTest {
+
+	public static void main(String[] args) { 
+
+//		ArrayList nathalie = new ArrayList();
+//		nathalie.add("Bonjour");
+//		nathalie.add(9);
+//		
+//		for(int i=0; i<nathalie.size(); i++) {
+//			System.out.println(nathalie.get(i));
+//		}
+		
+		ArrayList<A> arr = new ArrayList<A>();
+		arr.add(new A(2));
+		arr.add(new A(11));
+		arr.add(new B());
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Rectangles.java&apos; to &apos;U03/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;Prog1-Vorbereitungsprogramme&apos;&#x0D;&#x0A;- Destination element: &apos;U03/src/(default package)&apos;&#x0D;&#x0A;- Original element: &apos;Blatt3.Rectangles.java&apos;" description="Copy compilation unit" destination="=U03/src&lt;" element1="/src&lt;Blatt3{Rectangles.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1636187020196" units="1" version="1.0"/>
+</session>

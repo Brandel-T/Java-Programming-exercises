@@ -1,0 +1,99 @@
+
+public class CyclicalNumbers {
+
+	public static void main(String[] args) { 
+		//System.out.println(getLenght(1245566345));
+		System.out.println( checkDigits(142857) );
+	}
+
+	//Laenge einer Zahle berechnen
+	public static long getLenght(long number) 
+	{ 
+		if ( number < 0)
+			return -1;
+		else {
+			long n = 1;
+			long top = 1;
+			while (number > 10*top) {
+				n++;
+				top = 10*top;
+			}
+			
+			return n;
+		}
+	} 
+	
+	//Ziffer vergleichern
+	public static boolean checkDigits(long number) 
+	{		
+		long i = 1;
+		long product = number; //n*number
+		
+		//beginnen wir direkt mit i=2, weil wir fuer i=1 sowieso dieselbe Ziffern haben 
+		for ( i=2; i<=getLenght(number); i++ ) 
+		{
+			long n = getLenght(number);
+			
+			long iNumber = number; //number fuer jede i
+			product = i*number;     //Produkt fuer jede i
+			
+			if ( getLenght(iNumber) == getLenght(product) ) 
+			{
+				int ok;
+				
+				while ( n > 0 ) //hier hole ich einzelne Ziffern von iNumber
+				{
+					long iRest = iNumber % 10;
+					
+					long pn = n; //Laenge des produkts
+					long pRest ; //rest vom produkt
+					ok = 0; 
+					while ( pn > 0 ) //hier hole ich einzelne Ziffern vom aktuellen produkt und vergleiche mit iRest
+					{
+						pRest = product % 10;
+						if ( iRest ==  pRest ) {
+							System.out.println(iRest + " : " + pRest);
+							ok = ok + 1 ; 
+							System.out.println(ok + "------------");
+						}
+//						else
+//							ok = false; 
+						pn--;
+					}
+
+					System.out.println("ici, ok = "+ ok);
+					if (ok != 1){
+						System.out.println("ici, ok = "+ ok);
+						
+						return false;			
+					}
+					
+					iNumber = iNumber / 10; //ich eleminiere den Rest und habe dann eine Ziffer weniger
+					
+					n--;
+				}
+			}
+			else {
+				System.out.println("ici");
+				return false;			
+			}
+		}
+		
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

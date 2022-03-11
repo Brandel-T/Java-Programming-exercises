@@ -1,0 +1,5 @@
+package SS2006;
+
+public abstract class Hund {
+
+}

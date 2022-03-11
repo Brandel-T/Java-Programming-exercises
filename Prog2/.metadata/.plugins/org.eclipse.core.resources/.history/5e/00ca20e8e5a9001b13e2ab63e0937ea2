@@ -1,0 +1,50 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.*;
+import java.util.Arrays;
+public class CharCount 
+{
+	public static void main(String[] args) {
+		
+		try {
+
+			URL url = new URL("https://seafile.rlp.net/f/abed7a879dd94598ac07/?dl=1");
+			URLConnection connect = url.openConnection();
+			
+			InputStream is = connect.getInputStream(); 
+			int b = is.read();
+			String buffer ="";
+			while(b != -1)
+			{
+				buffer += (char)b;
+				b = is.read();
+			}
+			
+			is.close();
+			System.out.println("buffer: " + buffer);
+			char[] ch = buffer.toCharArray();
+			Arrays.sort(ch);
+System.out.println(ch.toString());
+			
+			char tmp=ch[0];
+			int count=1;
+			for(int i=1; i<ch.length; i++) {
+				
+				if(tmp == ch[i]) {
+					count++;
+				}else {
+					System.out.println(tmp + ": " + count + " time");
+					tmp=ch[i];
+					count = 1;
+				}
+			}
+			
+				
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+    
+	
+}

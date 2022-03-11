@@ -1,0 +1,51 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.*;
+import java.util.Arrays;
+public class CharCount 
+{
+	public static void main(String[] args) {
+		
+		try {
+
+			URL url = new URL(args[0]);
+			URLConnection connect = url.openConnection();
+			
+			InputStream is = connect.getInputStream(); 
+			int b = is.read();
+			String buffer ="";
+			while(b != -1)
+			{
+				buffer += (char)b;
+				b = is.read();
+			}
+			
+			is.close();
+			System.out.println("buffer: " + buffer);
+			char[] ch = buffer.toCharArray();
+			Arrays.sort(ch);
+			System.out.println(Arrays.toString(ch));
+			
+			char tmp=ch[0];
+			int count=1;
+			for(int i=1; i<ch.length; i++) {
+				
+				if(tmp == ch[i]) {
+					count++;
+				}else {
+					System.out.printf("The letter %s appears %d times.%n", tmp, count);
+					tmp=ch[i];
+					count = 1;
+				}
+			}
+				
+		} catch (IOException e) {
+			System.out.println(e);
+		} catch (MalformedURLException e) {
+			System.out.println(e);
+		}
+	}
+    
+	
+}

@@ -1,0 +1,35 @@
+
+public class IntegerArithmetic 
+{
+	
+	static long log(long n) throws ArithmeticException
+	{
+		//'count' correspondra_à la valeur_du logarithme_en base 2:
+		//qui_est le_nombre de_fois qu'on divise_un nobre par 2 
+		//jusqu'à ce_ qu'on_atteigne 1/2
+		long count = 0; //(logarithme_)
+		
+		if(n <= 0)
+		{
+			throw new ArithmeticException();
+		}
+		else
+		{
+			for(long i=n; i>1; i=i/2)
+			{
+				count++;
+				assert i == 0 : "i a atteint la valeur 0";
+			}
+		}
+		
+		return count; //(logarithme_)
+	}
+	
+	
+	public static void main(String[] args)
+	{
+		System.out.println(log(16));
+		//System.out.println(log(4294967295L));
+	}
+	
+}

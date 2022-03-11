@@ -1,0 +1,23 @@
+import java.util.Arrays;
+
+public class BadWordFilter 
+{
+//	public String filter (String input, String[] badWords)
+//	{
+//		for (String s : badWords)
+//		{
+//			if (input.contains(s)) {
+//				
+//			}
+//		}
+//		
+//	}
+	
+	public static void main(String[] args) {
+		String str = "Als Trennzeichen zwischen zwei Worten sollen Leerzeichen, Ausrufezeichen, Punkt und Komma verwendet werden.";
+		String regex = " |,|.";
+		System.out.println( Arrays.toString(str.split(regex)) );
+		
+	}
+	
+}

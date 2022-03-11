@@ -1,0 +1,54 @@
+package Blatt5;
+
+public class MyArcSinh {
+
+	public static double arcSinh(double x , double eps) {
+		double result = 0.0 ;
+	
+		if ( x <= -1 || x >= 1) 
+			System.out.println("Die Eingabezahl muss groesser -1 und kleiner 1 sein.");
+		else {
+			double prev, current; //previous and current term
+			double diff = 0.0; // = prev + (vorzeichen)*current
+			int vorzeichen = -1;
+			double exp = x*x*x;
+			
+			prev = x;
+
+			int i = 3;
+			while ( diff < eps ) 
+			{
+				int j = 1;
+				int k = 2;
+				int num = 1, denom = 1;
+				
+				for (j = 1; j < i; j = 2*j+1) {
+					num = num * j;
+				}
+				
+				for (k = 2; k < i; k = 2*k) {
+					denom = denom * k;
+				}
+				denom = denom*i;
+				
+				i = i+2;
+				current = num*exp / denom;
+				diff = prev + vorzeichen*current;
+				exp = exp*x*x;
+				
+				result = result + diff;
+				
+				prev = vorzeichen*current;
+				vorzeichen = -vorzeichen;
+			}
+		}
+		
+		return result ;
+	}
+	
+	public static void main(String[] args) {
+		
+		arcSinh(-2, Math.pow(10, -10));
+//		arcSinh(0.75, Math.pow(10, -10));
+	}
+}

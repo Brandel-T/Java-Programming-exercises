@@ -1,0 +1,19 @@
+
+public class NegativNumberException extends Exception
+{ 
+	private String message;
+	
+	public NegativNumberException()
+	{ 
+	}
+	
+	public NegativNumberException(String message)
+	{
+		this.message = message;  
+	}
+	
+	public String getMessage() {
+		return message;
+	}
+	
+}

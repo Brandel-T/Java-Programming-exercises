@@ -1,0 +1,37 @@
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		//generate a list at least 10 elements
+		List list = new List(
+				new Node(2),
+				new Node(22),
+				new Node(21),
+				new Node(12),
+				new Node(52),
+				new Node(4),
+				new Node(7),
+				new Node(5),
+				new Node(11),
+				new Node(0)
+				);
+		
+//		List list2 = new List();
+//		list2.insert(new Node(90), 0);
+//		list.print();
+		
+		list.insert(new Node(100), 1);
+		System.out.println(list.count);
+		list.print();
+		list.remove(5);
+		list.print();
+		Node n = new Node(1);
+		System.out.println(list.search(n));
+		
+//		list.insert(new Node(100), 3);
+//		list.print();
+	}
+
+	
+}

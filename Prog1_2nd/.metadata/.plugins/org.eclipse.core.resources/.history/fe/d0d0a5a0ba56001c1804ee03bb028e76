@@ -1,0 +1,64 @@
+/*
+ * Aufagbe 2 aus der Klausur im SS2008
+ */
+public class Root {
+
+	public static void main(String[] args) {
+		double a = 0;
+		double b = 2d;
+		double eps = 1e-4;
+		System.out.println( findRoot(a, b, eps) );
+	}
+
+	public static double f(double x) {
+		return Math.cos(x);
+	}
+	
+//	public static double findRoot(double a, double b, double eps) {
+//		double result = 0;
+//		double point = a;
+//		double fX = f(point);
+//		
+//		double e = (b - a) / 2;
+//		double i = 1;
+//		double wert;
+//		
+//		while (fX != 0 && e >= eps) 
+//		{
+//			System.out.println("fX = "+ fX);
+////			System.out.println("dedans");
+//			e = e / 2;
+//			if ( a + i*e <= b ) {
+//				point = a + i*e;
+//				System.out.print("point = " + point);
+//			}
+//			
+//			wert = f (point);
+//			System.out.println(" ; wert = "+ wert);
+//			if ( wert < fX || wert == 0.0) {
+//				System.out.println("point");
+//				fX = wert;
+//				result = point;
+//			}
+////			else fX = wert;
+//			
+//			i++;
+//			System.out.println();
+//		}
+//		
+//		return result;
+//	}
+	
+	public static double findRoot(double a,double b, double eps){
+        double e=(b-a)/2;
+        double min=Integer.MAX_VALUE;
+        int i=1;
+        while(e>=eps) {
+            if(Math.abs(f(a+i*e))<min)
+            min=Math.abs(f(min+i*e));
+            e=e/2;
+            i++;
+        }
+        return min;
+        }
+}

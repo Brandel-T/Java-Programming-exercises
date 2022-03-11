@@ -1,0 +1,58 @@
+package Blatt5;
+
+public class MyArcSinh {
+
+	public static double arcSinh(double x , double eps) {
+		double result = 0.0 ;
+	
+		if ( x <= -1 || x >= 1) 
+			return -1;
+		else {
+			double prev, current; //previous and current term
+			double diff = 0.0; // = prev + (vorzeichen)*current
+			int vorzeichen = -1;
+			double exp = x*x*x;
+			
+			prev = x;
+System.out.printf("eps = %f ", eps*100);
+			int i = 3;
+//			System.out.printf("%f ", prev);
+			while ( diff < eps ) 
+			{
+				int j = 1;
+				int k = 2;
+				int num = 1, denom = 1;
+				
+				for (j = 1; j < i; j = 2*j+1) {
+					num = num * j;
+				}
+				
+				for (k = 2; k < i; k = 2*k) {
+					denom = denom * k;
+				}
+				denom = denom*i;
+				
+				i = i+2;
+				current = num*exp / denom;
+				diff = prev + vorzeichen*current;
+				exp = exp*x*x;
+				System.out.println("diff = " + diff);
+//				System.out.printf("+ (%d)*%d*%f/%d ", vorzeichen, num, exp, denom);
+				
+				result = result + diff;
+				
+				prev = vorzeichen*current;
+				vorzeichen = -vorzeichen;
+			}
+		}
+		
+		return result ;
+	}
+	
+	public static void main(String[] args) {		
+//		arcSinh(-2, Math.pow(10, -10));
+		System.out.println();
+		System.out.println(arcSinh(0.75, Math.pow(10, -10)));
+//		System.out.println(arcSinh(0.99, Math.pow(10, -10)));
+	}
+}
