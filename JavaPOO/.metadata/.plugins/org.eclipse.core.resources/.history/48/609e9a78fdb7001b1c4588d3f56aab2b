@@ -1,0 +1,14 @@
+
+public class BadWordFilter 
+{
+//	public String filter (String input, String[] badWords)
+//	{
+//		
+//	}
+
+	public static void main(String[] args) {
+		String str = "mon pays va mal, hello. World'forca Barca";
+		System.out.println( str.split(" |,|'|.").toString() );
+	}
+	
+}

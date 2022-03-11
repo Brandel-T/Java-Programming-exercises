@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;RatCalc.jar&apos; to &apos;U06/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;U06&apos;&#x0D;&#x0A;- Destination element: &apos;U06/src/(default package)&apos;&#x0D;&#x0A;- Original element: &apos;RatCalc.jar&apos;" description="Copy file" destination="/src&lt;" element1="src/RatCalc.jar" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1638146608505" units="0" version="1.0"/>
+</session>

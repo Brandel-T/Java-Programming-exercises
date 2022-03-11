@@ -1,0 +1,9 @@
+
+public class Node
+{
+	Node previous;
+	Node next;
+	
+	Node(){ }; //default constructor
+	
+}

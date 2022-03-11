@@ -1,0 +1,87 @@
+package Aufgabe1_one_ABNAHME;
+
+public class BinTree
+{
+	protected Node root = null;
+	
+	protected class Node 
+	{
+		Element value;
+		Node left, right;
+		
+		Node(Element value, Node left, Node right) {
+			this.value = value;
+			this.left = left;
+			this.right = right;
+		}
+		
+		public String toString() {
+			return value.toString();
+		}
+	}
+	
+	public boolean isEmpty() 
+	{
+		return root == null;
+	}
+	
+	public void inorder( Node n )
+	{
+		inorder(n.left);
+		System.out.println( n.toString() );
+		inorder(n.right);
+	}
+	
+	public boolean insert( Element e ) 
+	{
+		Node node = new Node( e, null, null );
+		
+		if ( this.isEmpty() ) {
+			this.root = node;
+			return true;
+		} 
+		else if (root.value.getValue() == e.getValue()) {
+			return false;
+		}
+		else {
+			Node h = root;
+			if (e.getValue() < h.value.getValue() ) 
+			{
+				if ( h.left == null ) {
+					h.left = node;
+				} else {
+					return insert(e, h.left);
+				}				
+			} 
+			else if (e.getValue() > h.value.getValue()) {
+				if ( h.right == null ) {
+					h.right = node;
+				} else {
+					return insert(e, h.right);
+				}	
+			} 
+		}
+		return false;
+	}
+	
+	public boolean insert(Element e, Node n) 
+	{
+		this.root = n;
+		
+		if (this.root.value.getValue() == e.getValue())
+			return false;
+		else {
+			return insert(e);
+		}
+		 
+	}
+	
+	
+	public static void main(String[] args) {
+		BinTree bt = new BinTree();
+		bt.insert(new Element(4));
+		bt.insert(new Element(6));
+		
+	}
+
+}

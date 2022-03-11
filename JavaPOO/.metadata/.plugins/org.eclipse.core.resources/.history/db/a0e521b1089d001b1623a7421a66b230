@@ -1,0 +1,65 @@
+
+public class RootFromProduct 
+{
+	
+	//2.Methoden______
+	public double calculate(double[] numbers) throws NegativNumberException, NullPointerException
+	{
+		double multiplicator = 1;
+		for(double e : numbers)
+		{
+			if(e < 0) {
+				throw new NegativNumberException();
+			}
+			if(numbers.length == 0){ 
+				throw new NullPointerException();
+			}
+			else {
+				multiplicator *= e;
+			} 	
+		}
+		
+		return Math.sqrt(multiplicator);
+	}
+	
+	//3._____________
+	public static void main(String[] args)
+	{ 
+		double numbersArray[] = new double[args.length];
+		double number;
+		
+		for(int i=0; i<args.length; i++)
+		{
+			number = Double.valueOf(args[i]); 
+			numbersArray[i] = number;
+		}
+		
+		
+		RootFromProduct nn = new RootFromProduct();
+		try 
+		{
+			System.out.println(nn.calculate(numbersArray));
+		}
+		catch (NegativNumberException e) 
+		{
+			e.getMessage();
+		}
+		catch(NullPointerException e) {
+			e.getMessage();
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

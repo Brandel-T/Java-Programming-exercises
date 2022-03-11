@@ -1,0 +1,102 @@
+package Aufgabe1_one_ABNAHME;
+
+public class BinTree
+{
+	protected Node root = null;
+	
+//	public BinTree( Node root) {
+//		this.root = root;
+//	}
+	
+	protected class Node 
+	{
+		Element value;
+		Node left, right;
+		
+		Node(Element value, Node left, Node right) {
+			this.value = value;
+			this.left = left;
+			this.right = right;
+		}
+		
+		public String toString() {
+			return value.toString();
+		}
+	}
+	
+	public boolean isEmpty() 
+	{
+		return root == null;
+	}
+	
+	public void inorder( Node n )
+	{
+		if (n == null) {
+			return;
+		} else {
+			inorder(n.left);
+			System.out.println( n.toString() );
+			inorder(n.right);
+		}
+		
+	}
+	
+	public boolean insert( Element e ) 
+	{
+		Node node = new Node( e, null, null );
+		
+		if ( this.isEmpty() ) {
+			this.root = node;
+			return true;
+		} 
+		else if (e.compareTo(root.value) == 0) {
+			return false;
+		}
+		else {
+			Node h = root;
+			if (e.compareTo(h.value) < 0 ) 
+			{
+				if ( h.left == null ) {
+					h.left = node;
+				} else {
+					return insert(e, h.left);
+				}				
+			} 
+			else if (e.compareTo(h.value) > 0) {
+				if ( h.right == null ) {
+					h.right = node;
+				} else {
+					return insert(e, h.right);
+				}	
+			} 
+		}
+		return false;
+	}
+	
+	public boolean insert(Element el, Node root) 
+	{
+		this.root = root;
+		
+		if ( this.root.value.compareTo(el) == 0)
+			return false;
+		else {
+			return insert(el);
+		}
+		 
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		BinTree bt = new BinTree();
+//		BinTree.Node node = bt.new Node(new Element(4), null, null);
+		
+		System.out.println( bt.isEmpty() );
+		System.out.println( bt.insert(new Element(4)) ); 
+		System.out.println( bt.insert(new Element(6)) );  
+		
+		bt.inorder(bt.root);
+		
+	}
+
+}

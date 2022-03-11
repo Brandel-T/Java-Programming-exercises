@@ -1,0 +1,63 @@
+/*
+ * Aufagbe 2 aus der Klausur im SS2008
+ */
+public class Root {
+
+	public static void main(String[] args) {
+		double a = 0;
+		double b = 2d;
+		double eps = 1e-4;
+		System.out.println( findRoot(a, b, eps) );
+	}
+
+	public static double f(double x) {
+		return Math.cos(x);
+	}
+	
+	public static double findRoot(double a, double b, double eps) 
+	{ 
+		double x = a; //Start point
+		double point = x;
+		double e = (b-a)/2;
+		double oldF=Math.abs( f (x) );
+		double newF = 0;
+		
+		while (e >= eps)
+		{
+			point = a;
+			//jeder Durchlauf des Intervalls
+			while ( point <= b)
+			{ 
+				point = point + e; 
+				newF = Math.abs( f (point) );
+				if (newF < oldF ) {
+					oldF = newF;
+					x = point;
+				}
+			}
+			//danach e halbieren
+			e = e / 2;
+		}
+		
+		return x;
+	}
+	 
+//    public static double findRoot(double a,double b, double eps){
+//        double e=(b-a)/2;
+//        double min=a;
+//        double minF = Math.abs(f(min));
+//        while(e>=eps) {
+//            double curX = a;
+//            do {
+//                double curF = Math.abs(f(curX));
+//                if (curF < minF) {
+//                    min = curX;
+//                    minF = curF;
+//                }
+//                curX += e;
+//            } while (curX <= b);
+//            e=e/2;
+//        }
+//        return min;
+//    }
+}

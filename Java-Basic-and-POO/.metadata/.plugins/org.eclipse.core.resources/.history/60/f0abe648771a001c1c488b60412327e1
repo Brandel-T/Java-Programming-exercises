@@ -1,0 +1,50 @@
+package Blatt5;
+
+public class MySin {
+
+	/*
+	 * cette methode permet de déterminer une approximation
+	 * de la fonction Sinus
+	 * ---- cet exo est tiré d'un Altmeister(du 09.06.2005)
+	 * sur Google Drive
+	 * */
+	public double getSin(double x, int n) {
+		
+		double result = 0;
+		
+		if (x < 0 && n < 0)
+			return 999;
+		else {
+			double num = x, diff = 0;
+			int i = 1, denom = 1, sign = -1;
+			double altTerm = 0, neuTerm = x;
+			
+			int l = 3;
+			
+			do {
+				altTerm = neuTerm ;
+				num = num*x*x;
+				neuTerm = sign*num/((i+1)*(i+2)*denom);
+				diff = altTerm + neuTerm;
+				result = result + diff; 
+//				System.out.print(" " + altTerm + " " + neuTerm);
+				System.out.println("denom = " + denom);
+				
+				denom = (i+1)*(i+2)*denom;
+				i = i+2;
+				sign = -sign;
+				
+				l = l+2;
+			} while(l < n);
+		}
+		
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		MySin sin = new MySin();
+		System.out.println(sin.getSin(90, 10));
+	}
+	
+	
+}

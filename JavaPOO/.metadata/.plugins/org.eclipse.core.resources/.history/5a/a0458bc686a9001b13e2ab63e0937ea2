@@ -1,0 +1,24 @@
+
+public class Main 
+{
+	public static void main(String[] args) 
+	{
+		//generate a list at least 10 elements
+		List list = new List(
+				new Node(2),
+				new Node(22),
+				new Node(21),
+				new Node(12),
+				new Node(52),
+				new Node(4),
+				new Node(7),
+				new Node(5),
+				new Node(11),
+				new Node(0)
+				);
+
+		list.print();
+		
+		
+	}	
+}
